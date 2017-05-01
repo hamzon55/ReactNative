@@ -9,23 +9,18 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
+  TabBarIOS,
   View
 } from 'react-native';
+
+const Dashboard = require('./src/components/dashboard')
+
 
 export default class EntregaReact extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+      <View style={styles.container}>          
+<Dashboard/>
       </View>
     );
   }
@@ -35,7 +30,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
   welcome: {
