@@ -9,15 +9,19 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
+  ScrollView,
   TabBarIOS,
+  TouchableHighlight,
+  TouchableOpacity,
+  Navigator,
   View
 } from 'react-native';
 
-const Dashboard = require('./src/components/dashboard')
-const Details = require('./src/components/detail')
-const Tabs = require('./src/components/tabs')
 
-export default class EntregaReact extends Component {
+
+const Dashboard = require('./src/components/dashboard')
+
+ export default class EntregaReact extends Component {
   render() {
     return (
       <View style={styles.container}>          
@@ -44,5 +48,4 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
-
 AppRegistry.registerComponent('EntregaReact', () => EntregaReact);

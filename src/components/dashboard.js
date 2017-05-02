@@ -5,6 +5,7 @@ import {
     Text,
     TabBarIOS,
     Navigator,
+    NavigatorIOS,
     ListView,
     TouchableHighlight,
     View,
@@ -14,6 +15,7 @@ import {
 
 var Crypto = require('crypto-js');
 const Detail = require('./detail');
+const Location = require('./location');
 
 const REQUEST_URL = "http://gateway.marvel.com:80/v1/public/characters";
 
@@ -50,28 +52,27 @@ componentDidMount(){
     })
   }
  
-  renderLoadingView(){
+renderLoadingView(){
     return(
       <View style={styles.container}>
-        <Text style={{marginTop: 100}}>Loading ... </Text>
+        <Text style={{marginTop: 100}}>Cargando comics ... </Text>
       </View>
     )
   }
- 
- 
-   renderComic(comic){
+
+
+  renderComic(comic){
     return(
       <TouchableHighlight onPress={() => this.onComicPressed(comic)} >
         <Image source={{uri: comic.thumbnail.path+'.jpg'}} style={styles.backgroundImage}>
           <View style={styles.rightContainer}>
             <Text style={styles.title}> {comic.name}</Text>
-            <Text style={styles.available}>{comic.comics.available}</Text>
           </View>
         </Image>
       </TouchableHighlight>
     )
   }
- 
+
   render(){
     if(!this.state.loaded){
       return this.renderLoadingView();
@@ -84,12 +85,9 @@ componentDidMount(){
         style={styles.listview}
       />
     )
-
   }
 
-
- 
- onComicPressed(comic){
+  onComicPressed(comic){
     console.log(comic);
     this.props.navigator.push({
       name: 'Details',
@@ -100,6 +98,10 @@ componentDidMount(){
 
 
 }
+  
+
+
+
 
 
 var styles = StyleSheet.create({
@@ -127,12 +129,6 @@ var styles = StyleSheet.create({
     textAlign: 'center',
     color: '#FFFFFF',
     backgroundColor: 'rgba(52,52,52,0)',
-  },
-  available: {
-    fontSize:18,
-    textAlign: 'center',
-    color: '#FFFFFF',
-    backgroundColor:'rgba(52,52,52,0)',
   },
   listView: {
     paddingTop: 64,

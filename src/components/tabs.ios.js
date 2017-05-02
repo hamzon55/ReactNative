@@ -38,6 +38,11 @@ class Tabs extends Component {
                     <Heroes />
                 </TabBarIOS.Item>
 
+                <TabBarIOS.Item title="Location" selected={this.props.selectedTab == 'location'}
+                    onPress={() => {this.setState({selectedTab :'location' })}} >
+                    <Heroes />
+                </TabBarIOS.Item>
+
             </TabBarIOS>
         )
     }
