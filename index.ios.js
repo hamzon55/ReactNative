@@ -14,7 +14,8 @@ import {
 } from 'react-native';
 
 const Dashboard = require('./src/components/dashboard')
-
+const Details = require('./src/components/detail')
+const Tabs = require('./src/components/tabs')
 
 export default class EntregaReact extends Component {
   render() {

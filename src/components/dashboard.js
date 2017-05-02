@@ -4,6 +4,7 @@ import {
     StyleSheet,
     Text,
     TabBarIOS,
+    Navigator,
     ListView,
     TouchableHighlight,
     View,
@@ -12,6 +13,7 @@ import {
 
 
 var Crypto = require('crypto-js');
+const Detail = require('./detail');
 
 const REQUEST_URL = "http://gateway.marvel.com:80/v1/public/characters";
 
@@ -51,7 +53,7 @@ componentDidMount(){
   renderLoadingView(){
     return(
       <View style={styles.container}>
-        <Text style={{marginTop: 100}}>Cargando comics ... </Text>
+        <Text style={{marginTop: 100}}>Loading ... </Text>
       </View>
     )
   }
@@ -82,11 +84,12 @@ componentDidMount(){
         style={styles.listview}
       />
     )
+
   }
 
 
  
-  onComicPressed(comic){
+ onComicPressed(comic){
     console.log(comic);
     this.props.navigator.push({
       name: 'Details',
