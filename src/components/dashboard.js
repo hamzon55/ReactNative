@@ -13,7 +13,7 @@ import {
 
 var Crypto = require('crypto-js');
 
-const REQUEST_URL = "https://gateway.marvel.com:80/v1/public/characters";
+const REQUEST_URL = "http://gateway.marvel.com:80/v1/public/characters";
 
 class dashboard extends Component {
 
