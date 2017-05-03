@@ -18,34 +18,84 @@ import {
 } from 'react-native';
 
 
+let NavigationBarRouteMapper = {
+  LeftButton: function(route, navigator, index) {
 
-const Dashboard = require('./src/components/dashboard')
+    if(route.name=='Login' || route.name=='Dashboard'){
+      return null;
+    }
+    return(<TouchableHighlight underlayColor='rgba(0,0,0,0)' onPress={() => {
+              if(index > 0){
+                navigator.pop();
+              }
+          }}>
 
- export default class EntregaReact extends Component {
-  render() {
-    return (
-      <View style={styles.container}>          
-<Dashboard/>
-      </View>
-    );
+            <Text style={{marginTop: 10, marginLeft:20, color:'#007AFF'}}>Back</Text>
+         </TouchableHighlight>
+    )
+  },
+  RightButton: function(route){
+    return null;
+  },
+  Title: function(route){
+    if(route.name == 'Login' || route.name == 'Dashboard'){
+      return null;
+    }
+    return(
+      <Text style={{marginTop: 10, color:'#007AFF' }}>
+        {route.name}
+      </Text>
+    )
+  },
+};
+
+const Login = require('./src/components/login')
+const Tabs = require('./src/components/tabs')
+const Details = require('./src/components/heroesView')
+
+class EntregaReact extends Component {
+  renderScene (route, navigator) {
+    switch (route.name) {
+       case 'Login':
+        return (
+         <Login {...route.props} navigator={navigator} route={route} />
+       );
+       case 'Dashboard':
+        return (
+          <Tabs {...route.props} navigator={navigator} route={route}/>
+       );
+       case 'Details':
+        return(
+          <Details {...route.props} navigator={navigator} route={route} />
+        );
+
+    }
   }
+
+  render(){
+    return(
+
+      <Navigator style={styles.bar}
+         initialRoute={{name: 'Login'}}
+         renderScene={this.renderScene}
+         configureScene={(route) => {
+           if(route.sceneConfig){
+             return route.sceneConfig;
+           }
+           return Navigator.SceneConfigs.FloatFromRight
+         }}
+         navigationBar={
+           <Navigator.NavigationBar
+            routeMapper={NavigationBarRouteMapper}/>}
+      />
+    )
+  }
+
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  bar:{
+    backgroundColor: '#fff'
+  }
 });
 AppRegistry.registerComponent('EntregaReact', () => EntregaReact);

@@ -25,7 +25,7 @@ class Tabs extends Component {
 
     render() {
         return (
-            <TabBarIOS style={{ backgroundColor: '#82a43a' }}>
+            <TabBarIOS style={{ backgroundColor: '#FFFFFF' }}>
 
 
 
@@ -38,10 +38,7 @@ class Tabs extends Component {
                     <Heroes />
                 </TabBarIOS.Item>
 
-                <TabBarIOS.Item title="Location" selected={this.props.selectedTab == 'location'}
-                    onPress={() => {this.setState({selectedTab :'location' })}} >
-                    <Heroes />
-                </TabBarIOS.Item>
+            
 
             </TabBarIOS>
         )
