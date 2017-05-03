@@ -43,7 +43,7 @@ class login extends Component{
 
   render(){
     return(
-      <Image source={{uri: ''}} style={styles.container}>
+      <Image source={{uri: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT0n7yHEmF8ZrgfSDkpSaSKoOTiQXva6Kgt4lwZnghTC0BfWYGm9g'}} style={styles.container}>
         <Text style={styles.title}>
          SuperHero
         </Text>
@@ -54,7 +54,7 @@ class login extends Component{
 
           <Text>Name</Text>
       <TextInput
-       value={this.state.name}
+       value={this.state.username}
        onChangeText={(text) => this.setState({username: text})}
        style={styles.input} />
 
@@ -68,7 +68,7 @@ class login extends Component{
           style={styles.button}
           onPress={this.persistData}
           underlayColor="white">
-          <Text style={styles.buttonText}> SAVE </Text>
+          <Text style={{color:'white'}}> SAVE </Text>
         </TouchableHighlight>
 
 
@@ -137,6 +137,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 10,
     marginTop: 10,
+    
     alignSelf: 'stretch',
     justifyContent: 'center'
   },
