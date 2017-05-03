@@ -8,11 +8,13 @@ import {
     TabBarIOS,
     Navigator,
     NavigatorIOS,
+    AsyncStorage,
     Alert,
+    TextInput,
     ListView,
+    Image,
     TouchableHighlight,
     View,
-    Image
 } from 'react-native';
 
 
@@ -23,22 +25,60 @@ class login extends Component{
       super(props);
       console.log(props);
       this.state = {
-          username: "",
-          password: ""
-      };
+          username: '',
+          password: ''}
+        this.persistData = this.persistData.bind(this);
+
+      
+  }
+
+  persistData(){
+    let username = this.state.username
+    let password = this.state.password
+    AsyncStorage.setItem('usernname', username).done();
+    AsyncStorage.setItem('password', password).done();
+    this.setState({username: username, persistedUserName: username, password: password, persistedPassword: password })
   }
 
 
   render(){
     return(
-      <Image source={{uri: 'https://pixabay.com/static/uploads/photo/2015/03/11/01/33/hulk-667988_960_720.jpg'}} style={styles.container}>
+      <Image source={{uri: ''}} style={styles.container}>
         <Text style={styles.title}>
          SuperHero
         </Text>
         <View>
           <TouchableHighlight onPress={(this.onLogin.bind(this))} style={styles.boton}>
-            <Text style={styles.textoBoton}>Login</Text>
+            <Text style={styles.textBoton}>Login</Text>
           </TouchableHighlight>
+
+          <Text>Name</Text>
+      <TextInput
+       value={this.state.name}
+       onChangeText={(text) => this.setState({username: text})}
+       style={styles.input} />
+
+       <Text>Password</Text>
+       <TextInput
+       value={this.state.password}
+       onChangeText={(text) => this.setState({password: text})}
+       style={styles.input} />
+
+       <TouchableHighlight
+          style={styles.button}
+          onPress={this.persistData}
+          underlayColor="white">
+          <Text style={styles.buttonText}> SAVE </Text>
+        </TouchableHighlight>
+
+
+
+        <View>
+          <Text>PERSISTENCE DATA:</Text>
+          <Text>Username: {this.state.persistedUserName}</Text>
+          <Text>Password: {this.state.persistedPassword}</Text>
+        </View>
+
         </View>
       </Image>
     );
@@ -85,21 +125,47 @@ const styles = StyleSheet.create({
     marginTop: 20,
     fontSize: 35,
     marginBottom: 10,
-    backgroundColor: 'rgba(52,52,52,0)',
     textAlign: 'center',
     color:'#FFFFFF'
  },
+ button: {
+    height: 35,
+    flexDirection: 'row',
+    backgroundColor: '#006289',
+    borderColor: 'white',
+    borderWidth: 1,
+    borderRadius: 8,
+    marginBottom: 10,
+    marginTop: 10,
+    alignSelf: 'stretch',
+    justifyContent: 'center'
+  },
  boton: {
-     height: 36,
-     backgroundColor: 'red',
-     borderWidth: 1,
-     borderRadius: 8,
-     marginTop: 100,
-     justifyContent: 'center',
-     alignItems: 'center'
+    height: 35,
+    flexDirection: 'row',
+    backgroundColor: '#006289',
+    borderColor: 'white',
+    borderWidth: 1,
+    borderRadius: 8,
+    marginBottom: 10,
+    marginTop: 10,
+    alignSelf: 'stretch',
+    justifyContent: 'center'
  },
- textoBoton: {
+
+ input: {
+    height: 30,
+    padding: 4,
+    marginRight: 5,
+    fontSize: 23,
+    borderWidth: 1,
+    borderColor: 'gray',
+    borderRadius: 8,
+    color: 'black'
+  },
+ textBoton: {
      color: "#ffffff",
+     
  }
 
 })

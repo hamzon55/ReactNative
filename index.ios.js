@@ -51,7 +51,7 @@ let NavigationBarRouteMapper = {
 
 const Login = require('./src/components/login')
 const Tabs = require('./src/components/tabs')
-const Details = require('./src/components/heroes')
+const Details = require('./src/components/detail')
 
 class EntregaReact extends Component {
   renderScene (route, navigator) {
@@ -98,4 +98,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff'
   }
 });
+
 AppRegistry.registerComponent('EntregaReact', () => EntregaReact);

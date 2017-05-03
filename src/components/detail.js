@@ -3,6 +3,7 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
+  Image,
   TabBarIOS,
   View
 } from 'react-native';
@@ -24,8 +25,7 @@ render(){
 
         <Text style={styles.title}> {this.passProps.comic.name}</Text>
         <Text style={styles.description}>{this.passProps.comic.description}</Text>
-        <Text style={styles.description}>Disponibles: {this.passProps.comic.comics.available}</Text>
-        <Text style={styles.modified}>Modificado: {this.modified}</Text>
+    
       </View>
     );
   }

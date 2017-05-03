@@ -54,7 +54,7 @@ componentDidMount(){
 renderLoadingView(){
     return(
       <View style={styles.container}>
-        <Text style={{marginTop: 100}}>Cargando comics ... </Text>
+        <Text style={{marginTop: 100}}> Loading ... </Text>
       </View>
     )
   }
