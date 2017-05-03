@@ -15,7 +15,6 @@ import {
 
 var Crypto = require('crypto-js');
 const Detail = require('./detail');
-const Location = require('./location');
 
 const REQUEST_URL = "http://gateway.marvel.com:80/v1/public/characters";
 

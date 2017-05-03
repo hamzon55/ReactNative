@@ -51,7 +51,7 @@ let NavigationBarRouteMapper = {
 
 const Login = require('./src/components/login')
 const Tabs = require('./src/components/tabs')
-const Details = require('./src/components/heroesView')
+const Details = require('./src/components/heroes')
 
 class EntregaReact extends Component {
   renderScene (route, navigator) {

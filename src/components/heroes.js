@@ -7,11 +7,11 @@ import {
   View
 } from 'react-native';
 
-class location extends Component {
+class heroesView extends Component {
   render () {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>Soy el componente Location</Text>
+        <Text style={styles.title}>Soy el componente Heroes</Text>
       </View>
     );
   }
@@ -33,4 +33,4 @@ const styles = StyleSheet.create({
   }
 });
 
-module.exports = location;
+module.exports = heroesView;
