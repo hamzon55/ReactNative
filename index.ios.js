@@ -52,6 +52,7 @@ let NavigationBarRouteMapper = {
 const Login = require('./src/components/login')
 const Tabs = require('./src/components/tabs')
 const Details = require('./src/components/detail')
+var ImagePicker = require('react-native-image-picker');
 
 class EntregaReact extends Component {
   renderScene (route, navigator) {
