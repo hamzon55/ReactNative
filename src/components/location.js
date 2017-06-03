@@ -10,7 +10,7 @@ Image
 } from 'react-native';
 import ImagePicker from 'react-native-image-picker'
 
-export default class location extends Component {
+export default class picture extends Component {
 constructor (props){
 super(props)
 this.state = {
@@ -70,4 +70,4 @@ justifyContent: 'center'
 }
 });
 
-module.exports = location;
+module.exports = picture;
