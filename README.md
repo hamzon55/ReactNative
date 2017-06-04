@@ -53,9 +53,9 @@ react-native run-android
 
 
 
-## Helper
+## Important
 
-Before launching the app you should install the following components :
+In case of errors  you should install the following components using the console :
 
 - React-native-maps
 
