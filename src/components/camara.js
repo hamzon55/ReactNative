@@ -10,7 +10,7 @@ Image
 } from 'react-native';
 import ImagePicker from 'react-native-image-picker'
 
-export default class picture extends Component {
+export default class camara extends Component {
 constructor (props){
 super(props)
 this.state = {
@@ -76,4 +76,4 @@ title: {
 }
 });
 
-module.exports = picture;
+module.exports = camara;
