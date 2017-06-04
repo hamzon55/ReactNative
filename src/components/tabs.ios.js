@@ -13,6 +13,7 @@ const locationHeroes = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCA
 
 const Dashboard = require('./dashboard');
 const Location = require('./location');
+const Maps = require('./maps');
 
 class Tabs extends Component{
 
@@ -61,6 +62,23 @@ class Tabs extends Component{
 
             <Location/>
           </TabBarIOS.Item>
+
+
+
+
+  <TabBarIOS.Item
+            title="Maps"
+            selected={this.state.selectedTab === 'maps'}
+            icon={{uri: locationHeroes}}
+            onPress={() => {
+              this.setState({
+                selectedTab: 'maps'
+              })
+
+            }}>
+              <Maps/>
+          </TabBarIOS.Item>
+
 
 
 

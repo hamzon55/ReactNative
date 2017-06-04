@@ -47,10 +47,11 @@ imageWidth: response.width
 render () {
 return (
 <View style={styles.container}>
+  
 {this.state.imagePath ? <Image  style ={{width: 100, height: 100}} source ={{uri: this.state.imagePath}} /> : null }
 <TouchableHighlight onPress={this.openImagePicker.bind(this)}
 >
-<Text>Open Camara </Text>
+<Text>Click here to Open the Camara </Text>
 </TouchableHighlight>
 </View>
 );
@@ -59,14 +60,19 @@ return (
 
 const styles = StyleSheet.create({
 container: {
-flex: 1,
-marginTop:80
+ flex: 1,
+    width: null,
+    height: null,
+    alignItems: 'stretch',
+    padding: 30,
+    marginTop: 100,
 
 },
 title: {
-marginTop: 30,
-fontSize: 20,
-justifyContent: 'center'
+
+  marginTop: 40,
+    fontSize: 20,
+    justifyContent: 'center'
 }
 });
 

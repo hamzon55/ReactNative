@@ -7,7 +7,7 @@ import {
   View
 } from 'react-native';
 
-class heroesView extends Component {
+class maps extends Component {
   render () {
     return (
       <View style={styles.container}>
@@ -33,4 +33,4 @@ const styles = StyleSheet.create({
   }
 });
 
-module.exports = heroesView;
+module.exports = maps;
