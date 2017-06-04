@@ -55,12 +55,12 @@ react-native run-android
 
 ## Helper
 
-If you can't see the map on the two platforms you should run these commands:
+Before launching the app you should install the following components :
 
 - React-native-maps
 
 ```
-react-native unlink react-native-maps
+npm install react-native-maps --save
 react-native link react-native-maps
 ```
 
@@ -70,6 +70,13 @@ react-native link react-native-maps
 npm install react-native-image-picker@latest --save
 react-native link
 ```
+
+- React Native Crypto
+
+````
+npm install crypto-js
+````
+
 
 
 
